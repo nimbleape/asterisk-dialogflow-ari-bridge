@@ -1,0 +1,27 @@
+{
+  "name": "asterisk-dialogflow-ari-bridge",
+  "version": "1.0.0",
+  "description": "ARI bridge to handle External Media for Asterisk Dialogflow AudioServer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbleape/asterisk-dialogflow-ari-bridge.git"
+  },
+  "main": "index.js",
+  "author": "Dan Jenkins <dan@nimblea.pe>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "ari-client": "^2.2.0",
+    "async-mqtt": "^2.4.2",
+    "config": "^3.2.4",
+    "mqtt": "^3.0.0",
+    "pino": "^5.14.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^3.4.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start-pretty": "node index.js | pino-pretty"
+  }
+}
