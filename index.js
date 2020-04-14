@@ -80,7 +80,7 @@ async function main() {
                         await client.channels.setChannelVar({ channelId: channel.id, variable: 'foo', value: data.intent.parameters.fields.foo.stringValue })
                     }
 
-                    if (data.intent && data.intent.endInteraction) {
+                    if (data.intent && data.intent.intent && data.intent.intent.endInteraction) {
                         await client.channels.continueInDialplan({ channelId: channel.id });
                     }
                 });
