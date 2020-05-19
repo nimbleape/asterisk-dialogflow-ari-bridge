@@ -47,6 +47,13 @@ async function main() {
             let logger = log.child({id: channel.id});
             logger.info({event}, 'channel entered our application');
 
+            if(config.has('asterisk.playback')){
+                let playback = client.Playback();
+                let playbackFinished = new Promise (resolve => playback.once('PlaybackFinished', resolve));
+                channel.play({ media:`sound:${config.get('asterisk.playback')}` }, playback);
+                await playbackFinished;
+            }
+
             let bridge = new Bridge(client, log);
 
             channels.set(channel.id, bridge);
